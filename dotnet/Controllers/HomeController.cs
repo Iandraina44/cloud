@@ -1,8 +1,8 @@
 using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
-using dotnet.Models;
+using cloud.Models;
 
-namespace dotnet.Controllers;
+namespace cloud.Controllers;
 
 public class HomeController : Controller
 {

@@ -1,0 +1,6 @@
+dotnet add package BCrypt.Net-Next
+dotnet add package MySql.Data  
+
+
+URL login
+http://localhost:5174/api/Utilisateur/login

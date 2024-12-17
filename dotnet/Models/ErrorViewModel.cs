@@ -1,4 +1,4 @@
-namespace dotnet.Models;
+namespace cloud.Models;
 
 public class ErrorViewModel
 {
