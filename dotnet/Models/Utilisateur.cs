@@ -2,6 +2,9 @@ using MySql.Data.MySqlClient;
 using System;
 using System.Text;
 using BCrypt.Net;
+using email.Models;
+using auth.Models;
+
 namespace user.Models
 {
     public class Utilisateur
@@ -86,57 +89,114 @@ namespace user.Models
             return null; // Retourne null si aucune donnée n'est trouvée
         }
 
-
-
-        public static string Login(string email, string password, MySqlConnection connection)
+        public static string GenerateFourDigitCode()
         {
-            try
+            var random = new Random();
+            int code = random.Next(0, 10000); // Génère un entier aléatoire entre 0 et 9999
+            return code.ToString("D4"); // Formate le nombre en 4 chiffres avec des zéros initiaux si nécessaire
+        }
+
+        // public static string Login(string email, string password, MySqlConnection connection)
+        // {
+        //     try
+        //     {
+        //         // Requête pour récupérer le mot de passe haché associé à l'email donné
+        //         string query = "SELECT * FROM utilisateur WHERE email = @Email";
+
+        //         using (var command = new MySqlCommand(query, connection))
+        //         {
+        //             command.Parameters.AddWithValue("@Email", email);
+
+        //             using (var reader = command.ExecuteReader())
+        //             {
+        //                 if (reader.Read())
+        //                 {
+        //                     // Récupère le mot de passe haché depuis la base de données
+        //                     string hashedPassword = reader.GetString("mdp");
+        //                     int id = reader.GetInt32("id_utilisateur");
+
+
+        //                     // Vérifie si le mot de passe donné correspond au hash
+        //                     if (BCrypt.Net.BCrypt.Verify(password, hashedPassword))
+        //                     {   
+        //                         string pin=Utilisateur.GenerateFourDigitCode();
+        //                         string htmlPath = EmailSenderModel.GenerateEmail(pin, "email_personalise");
+        //                         EmailSenderModel.SendEmail("mamynyainarazafinjatovo999@gmail.com",email,htmlPath,pin);
+
+        //                         Authentification authentification = new Authentification();
+        //                         authentification.DateDebut = DateTime.Now;
+        //                         authentification.DateFin = authentification.DateDebut.AddSeconds(90);
+        //                         authentification.Pin = pin;
+        //                         authentification.IdUtilisateur = id;
+        //                         authentification.Insert(connection);
+        //                         // return GenerateToken(16); // Mot de passe correct
+        //                         return "true";
+        //                     }
+        //                 }
+        //             }
+        //         }
+        //     }
+        //     catch (Exception ex)
+        //     {
+        //         Console.WriteLine("Erreur lors de la connexion: " + ex.Message);
+        //     }
+
+        //     return null; // Retourne false si l'email ou le mot de passe est incorrect
+        // }
+
+
+            public static string Login(string email, string password, MySqlConnection connection)
             {
-                // Requête pour récupérer le mot de passe haché associé à l'email donné
-                string query = "SELECT mdp FROM utilisateur WHERE email = @Email";
-
-                using (var command = new MySqlCommand(query, connection))
+                try
                 {
-                    command.Parameters.AddWithValue("@Email", email);
+                    // Requête pour récupérer les données utilisateur
+                    string query = "SELECT * FROM utilisateur WHERE email = @Email";
 
-                    using (var reader = command.ExecuteReader())
+                    using (var command = new MySqlCommand(query, connection))
                     {
-                        if (reader.Read())
-                        {
-                            // Récupère le mot de passe haché depuis la base de données
-                            string hashedPassword = reader.GetString("mdp");
+                        command.Parameters.AddWithValue("@Email", email);
 
-                            // Vérifie si le mot de passe donné correspond au hash
-                            if (BCrypt.Net.BCrypt.Verify(password, hashedPassword))
+                        // Lecture des données
+                        using (var reader = command.ExecuteReader())
+                        {
+                            if (reader.Read())
                             {
-                                return GenerateToken(16); // Mot de passe correct
+                                string hashedPassword = reader.GetString("mdp");
+                                int id = reader.GetInt32("id_utilisateur");
+
+                                // Vérification du mot de passe
+                                if (BCrypt.Net.BCrypt.Verify(password, hashedPassword))
+                                {
+                                    string pin = Utilisateur.GenerateFourDigitCode();
+                                    string htmlPath = EmailSenderModel.GenerateEmail(pin, "email_personalise");
+                                    EmailSenderModel.SendEmail("mamynyainarazafinjatovo999@gmail.com", email, htmlPath, pin);
+
+                                    // Fermeture du reader avant l'insertion
+                                    reader.Close();
+
+                                    // Création et insertion de l'objet Authentification
+                                    Authentification authentification = new Authentification
+                                    {
+                                        DateDebut = DateTime.Now,
+                                        DateFin = DateTime.Now.AddSeconds(90),
+                                        Pin = pin,
+                                        IdUtilisateur = id
+                                    };
+
+                                    authentification.Insert(connection);
+                                    return "true"; // Succès
+                                }
                             }
                         }
                     }
                 }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("Erreur lors de la connexion: " + ex.Message);
+                }
+
+                return null; // Échec
             }
-            catch (Exception ex)
-            {
-                Console.WriteLine("Erreur lors de la connexion: " + ex.Message);
-            }
-
-            return null; // Retourne false si l'email ou le mot de passe est incorrect
-        }
-
-
-         public static string GenerateToken(int length )
-        {
-            const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-            var random = new Random();
-            var token = new StringBuilder();
-
-            for (int i = 0; i < length; i++)
-            {
-                token.Append(chars[random.Next(chars.Length)]);
-            }
-
-            return token.ToString();
-        }
 
     }
 }

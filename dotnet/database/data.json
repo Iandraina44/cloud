@@ -1,0 +1,41 @@
+URL login
+http://localhost:5139/api/Utilisateur/login
+
+{
+    "IdUtilisateur": 3,
+    "Email": "ranaivosonmiantsa@gmail.com",
+    "Mdp": "123"
+}
+
+URL Email
+http://localhost:5139/api/Email/send-email
+
+{
+    "emailSender": "mamynyainarazafinjatovo999@gmail.com",
+    "emailReceiver": "ndimbyrazafinjatovo999@gmail.com",
+    "pinOuLink": "https://example.com/mon-lien-ou-code-1234",
+    "fileName": "email_personalise"
+}
+
+URL authentification
+http://localhost:5139/api/Authentification/add
+{
+    "pin": "1234",
+    "idUtilisateur": 1
+}
+
+URL checkPin
+http://localhost:5139/api/Authentification/check-pin
+{
+    "pin": "1234",
+    "idUtilisateur": 3
+}
+  
+url inscription
+http://localhost:5139/api/Utilisateur/insert
+
+{
+    "IdUtilisateur": 3,
+    "Email": "ranaivosonmiantsa@gmail.com",
+    "Mdp": "123"
+}
