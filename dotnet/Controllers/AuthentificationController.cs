@@ -220,6 +220,7 @@ namespace check.Controllers
                         });
                     }
 
+
                     return Ok(new
                     {
                         status = "success",
@@ -230,7 +231,8 @@ namespace check.Controllers
                             lastAuthentification.Pin,
                             lastAuthentification.DateDebut,
                             lastAuthentification.DateFin,
-                            lastAuthentification.IdUtilisateur
+                            lastAuthentification.IdUtilisateur,
+                            lastAuthentification.Token
                         }
                     });
                 }

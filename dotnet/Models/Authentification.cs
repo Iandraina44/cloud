@@ -13,6 +13,7 @@ namespace auth.Models
         public DateTime DateDebut { get; set; }
         public DateTime DateFin { get; set; }
         public int IdUtilisateur { get; set; }
+        public string Token { get; set; }
 
         // Constructeur avec paramètres
         public Authentification(int idAuthentification, string pin, DateTime dateDebut, DateTime dateFin, int idUtilisateur)
@@ -133,6 +134,8 @@ namespace auth.Models
                         // Fermer le DataReader avant d'exécuter une autre commande
                         reader.Close();
 
+
+
                         // Générer et insérer le token
                         string token = GenerateToken(16);
                         TokenHistorique tokenHistorique = new TokenHistorique(
@@ -142,7 +145,9 @@ namespace auth.Models
                             idUtilisateur
                         );
 
-                        bool insert = TokenHistorique.Insert(tokenHistorique, connection);
+                         if (DateTime.Now < dateFin){
+                            bool insert = TokenHistorique.Insert(tokenHistorique, connection);
+                        }
 
                         // Retourner l'objet Authentification
                         return new Authentification
@@ -151,7 +156,8 @@ namespace auth.Models
                             Pin = pinResult,
                             DateDebut = dateDebut,
                             DateFin = dateFin,
-                            IdUtilisateur = idUser
+                            IdUtilisateur = idUser,
+                            Token=token
                         };
                     }
                 }
