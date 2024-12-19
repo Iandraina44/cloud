@@ -3,7 +3,7 @@ using MySql.Data.MySqlClient;
 using connexion.Models; // Importez la classe ConnexionMysql
 using auth.Models; // Importez le modèle Authentification
 using System;
-
+using user.Models;
 namespace check.Controllers
 {
     [ApiController]
@@ -246,6 +246,7 @@ namespace check.Controllers
             }
         }
 
+        
     
     }
 }

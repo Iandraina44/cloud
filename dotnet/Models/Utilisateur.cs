@@ -198,5 +198,75 @@ namespace user.Models
                 return null; // Échec
             }
 
+    public void InsertInscription(MySqlConnection connection, string mailSender)
+    {
+        try
+        {
+            string mdp_hache = HashPassword(Mdp);
+            string randomToken = Authentification.GenerateToken(16);
+            string query = "INSERT INTO inscription (email, mdp, date_entree, random_token, date_validation) VALUES (@Email, @Mdp, @DateEntree, @RandomToken, @DateValidation)";
+
+            using (var command = new MySqlCommand(query, connection))
+            {
+                command.Parameters.AddWithValue("@Email", Email);
+                command.Parameters.AddWithValue("@Mdp", mdp_hache);
+                command.Parameters.AddWithValue("@DateEntree", DateTime.Now);
+                command.Parameters.AddWithValue("@RandomToken", randomToken);
+                command.Parameters.AddWithValue("@DateValidation", null); 
+
+                command.ExecuteNonQuery();
+            }
+            EmailSenderModel.SendEmailWithToken(mailSender, Email, randomToken);
+
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine("Erreur lors de l'insertion de l'inscription: " + ex.Message);
+        }
     }
+
+    public static void ValidateAndInsertUser( MySqlConnection connection, string token)
+    {
+        try
+        {
+            string selectQuery = "SELECT * FROM inscription WHERE random_token = @Token";
+            using (var selectCommand = new MySqlCommand(selectQuery, connection))
+            {
+                selectCommand.Parameters.AddWithValue("@Token", token);
+
+                using (var reader = selectCommand.ExecuteReader())
+                {
+                    if (reader.Read())
+                    {
+                        string email = reader.GetString("email");
+                        string mdp = reader.GetString("mdp");
+                        int idInscription = reader.GetInt32("id_inscription");
+
+                        reader.Close();
+
+                        string updateQuery = "UPDATE inscription SET date_validation = @DateValidation WHERE id_inscription = @IdInscription";
+                        using (var updateCommand = new MySqlCommand(updateQuery, connection))
+                        {
+                            updateCommand.Parameters.AddWithValue("@DateValidation", DateTime.Now);
+                            updateCommand.Parameters.AddWithValue("@IdInscription", idInscription);
+                            updateCommand.ExecuteNonQuery();
+                        }
+
+                        string insertQuery = "INSERT INTO utilisateur (email, mdp) VALUES (@Email, @Mdp)";
+                        using (var insertCommand = new MySqlCommand(insertQuery, connection))
+                        {
+                            insertCommand.Parameters.AddWithValue("@Email", email);
+                            insertCommand.Parameters.AddWithValue("@Mdp", mdp);
+                            insertCommand.ExecuteNonQuery();
+                        }
+                    }
+                }
+            }
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine("Erreur lors de la validation et de l'insertion de l'utilisateur: " + ex.Message);
+        }
+    }
+}
 }
