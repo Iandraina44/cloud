@@ -10,7 +10,7 @@ builder.Services.AddSwaggerGen(c =>
 {
     c.SwaggerDoc("v1", new OpenApiInfo
     {
-        Title = "Nom de votre API",
+        Title = "cloud API",
         Version = "v1",
         Description = "Documentation API générée par Swagger",
     });

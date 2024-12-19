@@ -1,27 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "C:\\xampp\\htdocs\\encours_S5\\cloud\\dotnet\\dotnet.csproj": {}
+    "D:\\S5\\mr Rojo\\cloud\\dotnet\\dotnet.csproj": {}
   },
   "projects": {
-    "C:\\xampp\\htdocs\\encours_S5\\cloud\\dotnet\\dotnet.csproj": {
+    "D:\\S5\\mr Rojo\\cloud\\dotnet\\dotnet.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\xampp\\htdocs\\encours_S5\\cloud\\dotnet\\dotnet.csproj",
+        "projectUniqueName": "D:\\S5\\mr Rojo\\cloud\\dotnet\\dotnet.csproj",
         "projectName": "dotnet",
-        "projectPath": "C:\\xampp\\htdocs\\encours_S5\\cloud\\dotnet\\dotnet.csproj",
-        "packagesPath": "C:\\Users\\Ndimby Razafinjatovo\\.nuget\\packages\\",
-        "outputPath": "C:\\xampp\\htdocs\\encours_S5\\cloud\\dotnet\\obj\\",
+        "projectPath": "D:\\S5\\mr Rojo\\cloud\\dotnet\\dotnet.csproj",
+        "packagesPath": "C:\\Users\\MIANTSA\\.nuget\\packages\\",
+        "outputPath": "D:\\S5\\mr Rojo\\cloud\\dotnet\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Ndimby Razafinjatovo\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\MIANTSA\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -34,11 +32,6 @@
           "warnAsError": [
             "NU1605"
           ]
-        },
-        "restoreAuditProperties": {
-          "enableAudit": "true",
-          "auditLevel": "low",
-          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -56,6 +49,10 @@
             "MySql.Data": {
               "target": "Package",
               "version": "[9.1.0, )"
+            },
+            "Swashbuckle.AspNetCore": {
+              "target": "Package",
+              "version": "[7.2.0, )"
             }
           },
           "imports": [
@@ -77,7 +74,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.111/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
