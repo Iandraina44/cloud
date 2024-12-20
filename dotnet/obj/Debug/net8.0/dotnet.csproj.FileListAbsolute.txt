@@ -191,3 +191,6 @@ D:\ITU\S5\Web_avance\cloud\dotnet\bin\Debug\net8.0\Microsoft.Extensions.Dependen
 D:\ITU\S5\Web_avance\cloud\dotnet\bin\Debug\net8.0\Microsoft.Extensions.Logging.Abstractions.dll
 D:\ITU\S5\Web_avance\cloud\dotnet\bin\Debug\net8.0\Npgsql.dll
 >>>>>>> a1590e38b6a3c39716d1c9d4840dabb81e05be06
+D:\S5\mr Rojo\cloud\dotnet\bin\Debug\net8.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+D:\S5\mr Rojo\cloud\dotnet\bin\Debug\net8.0\Microsoft.Extensions.Logging.Abstractions.dll
+D:\S5\mr Rojo\cloud\dotnet\bin\Debug\net8.0\Npgsql.dll
