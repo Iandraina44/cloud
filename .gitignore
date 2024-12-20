@@ -19,3 +19,4 @@ dotnet/obj/Debug/net8.0/dotnet.sourcelink.json
 dotnet/obj/Debug/net8.0/dotnet.pdb
 dotnet/obj/Debug/net8.0/dotnet.dll
 dotnet/obj/Debug/net8.0/dotnet.AssemblyInfoInputs.cache
+dotnet/Models/ConnexionMysql.cs
