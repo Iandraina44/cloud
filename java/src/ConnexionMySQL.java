@@ -12,7 +12,7 @@ public class ConnexionMySQL {
             
             // Créer la connexion avec les paramètres appropriés
             c = DriverManager.getConnection(
-                "jdbc:mysql://localhost:3306/userCluster", 
+                "jdbc:mysql://localhost:3306/cloud", 
                 "root",                         
                 ""           
             );
