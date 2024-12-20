@@ -124,3 +124,6 @@ D:\ITU\S5\Web_avance\cloud\dotnet\obj\Debug\net8.0\refint\dotnet.dll
 D:\ITU\S5\Web_avance\cloud\dotnet\obj\Debug\net8.0\dotnet.pdb
 D:\ITU\S5\Web_avance\cloud\dotnet\obj\Debug\net8.0\dotnet.genruntimeconfig.cache
 D:\ITU\S5\Web_avance\cloud\dotnet\obj\Debug\net8.0\ref\dotnet.dll
+D:\ITU\S5\Web_avance\cloud\dotnet\bin\Debug\net8.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+D:\ITU\S5\Web_avance\cloud\dotnet\bin\Debug\net8.0\Microsoft.Extensions.Logging.Abstractions.dll
+D:\ITU\S5\Web_avance\cloud\dotnet\bin\Debug\net8.0\Npgsql.dll
