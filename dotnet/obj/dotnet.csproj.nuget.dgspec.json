@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\ITU\\S5\\Web_avance\\cloud\\dotnet\\dotnet.csproj": {}
+    "D:\\S5\\mr Rojo\\cloud\\dotnet\\dotnet.csproj": {}
   },
   "projects": {
-    "D:\\ITU\\S5\\Web_avance\\cloud\\dotnet\\dotnet.csproj": {
+    "D:\\S5\\mr Rojo\\cloud\\dotnet\\dotnet.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\ITU\\S5\\Web_avance\\cloud\\dotnet\\dotnet.csproj",
+        "projectUniqueName": "D:\\S5\\mr Rojo\\cloud\\dotnet\\dotnet.csproj",
         "projectName": "dotnet",
-        "projectPath": "D:\\ITU\\S5\\Web_avance\\cloud\\dotnet\\dotnet.csproj",
-        "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
-        "outputPath": "D:\\ITU\\S5\\Web_avance\\cloud\\dotnet\\obj\\",
+        "projectPath": "D:\\S5\\mr Rojo\\cloud\\dotnet\\dotnet.csproj",
+        "packagesPath": "C:\\Users\\MIANTSA\\.nuget\\packages\\",
+        "outputPath": "D:\\S5\\mr Rojo\\cloud\\dotnet\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\user\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\MIANTSA\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
@@ -74,7 +74,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.111/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
