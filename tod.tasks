@@ -1,9 +1,0 @@
-☐ inscription
-    ☐ base
-        ☐ table inscription
-            (id,mail,date_entree,date_valider)
-    ☐ metier
-        ☐ envoi email ( lien + id mail)
-        ☐ apres lien (inserer [mail,id_inscription] table user)
-☐ connection
-    ☐ 
