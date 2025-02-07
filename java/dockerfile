@@ -1,0 +1,47 @@
+FROM tomcat:10.0-jdk17
+
+# Copy source files to Tomcat folder structure
+COPY . /usr/local/tomcat/webapps/
+
+# Set the working directory to the classes directory
+WORKDIR /usr/local/tomcat/webapps/MyApp/WEB-INF/classes/
+
+# Compile the Java files using -d .
+RUN ["javac", "-cp", ".:../lib/*", "-d", ".", "ConnexionMySQL.java"]
+RUN ["javac", "-cp", ".:../lib/*", "-d", ".", "Util.java"]
+RUN ["javac", "-cp", ".:../lib/*", "-d", ".", "Utilisateur.java"]
+RUN ["javac", "-cp", ".:../lib/*", "-d", ".", "LoginSessionServlet.java"]
+RUN ["javac", "-cp", ".:../lib/*", "-d", ".", "SessionServlet.java"]
+RUN ["javac", "-cp", ".:../lib/*", "-d", ".", "Cryptomonaie.java"]
+RUN ["javac", "-cp", ".:../lib/*", "-d", ".", "CoursCrypto.java"]
+RUN ["javac", "-cp", ".:../lib/*", "-d", ".", "CryptoChartServlet.java"]
+RUN ["javac", "-cp", ".:../lib/*", "-d", ".", "GraphCrypto.java"]
+RUN ["javac", "-cp", ".:../lib/*", "-d", ".", "Notification.java"]
+RUN ["javac", "-cp", ".:../lib/*", "-d", ".", "Fond.java"]
+RUN ["javac", "-cp", ".:../lib/*", "-d", ".", "FondServlet.java"]
+RUN ["javac", "-cp", ".:../lib/*", "-d", ".", "PortefeuilleCrypto.java"]
+RUN ["javac", "-cp", ".:../lib/*", "-d", ".", "Commission.java"]
+RUN ["javac", "-cp", ".:../lib/*", "-d", ".", "Vente.java"]
+RUN ["javac", "-cp", ".:../lib/*", "-d", ".", "VenteServlet.java"]
+RUN ["javac", "-cp", ".:../lib/*", "-d", ".", "AchatCrypto.java"]
+RUN ["javac", "-cp", ".:../lib/*", "-d", ".", "AchatCryptoServlet.java"]
+RUN ["javac", "-cp", ".:../lib/*", "-d", ".", "StatistiquesCryptoServlet.java"]
+RUN ["javac", "-cp", ".:../lib/*", "-d", ".", "OperationHistoriquetServlet.java"]
+RUN ["javac", "-cp", ".:../lib/*", "-d", ".", "OperationUtilisateurServlet.java"]
+RUN ["javac", "-cp", ".:../lib/*", "-d", ".", "Admin.java"]
+RUN ["javac", "-cp", ".:../lib/*", "-d", ".", "AdminLoginServlet.java"]
+RUN ["javac", "-cp", ".:../lib/*", "-d", ".", "AdminSessionServlet.java"]
+RUN ["javac", "-cp", ".:../lib/*", "-d", ".", "CommissionServlet.java"]
+RUN ["javac", "-cp", ".:../lib/*", "-d", ".", "FondAdminServlet.java"]
+RUN ["javac", "-cp", ".:../lib/*", "-d", ".", "ListVenteServlet.java"]
+RUN ["javac", "-cp", ".:../lib/*", "-d", ".", "HistoriqueAchatServlet.java"]
+RUN ["javac", "-cp", ".:../lib/*", "-d", ".", "CommissionAnalysisServlet.java"]
+RUN ["javac", "-cp", ".:../lib/*", "-d", ".", "PortefeuilleAlea.java"]
+RUN ["javac", "-cp", ".:../lib/*", "-d", ".", "PortefeuilleServlet.java"]
+
+
+
+
+# Serve Tomcat
+EXPOSE 8080
+CMD ["catalina.sh", "run"]

@@ -1,0 +1,106 @@
+
+<footer class="site-footer">
+    <div class="container">
+        <div class="row">
+            
+            <div class="col-lg-12 col-12">
+                <p class="copyright-text">ETU 2453 B-45 / ETU 2629 B-144/ ETU 2557 B-104 / ETU 2449 B-44 </p>
+            </div>
+
+        </div>
+    </div>
+</footer>
+
+</main>
+
+</div>
+</div>
+
+<!-- JAVASCRIPT FILES -->
+<script src="assets/js/jquery.min.js"></script>
+<script src="assets/js/bootstrap.bundle.min.js"></script>
+<script src="assets/js/apexcharts.min.js"></script>
+<script src="assets/js/custom.js"></script>
+
+<script type="text/javascript">
+var options = {
+series: [13, 43, 22],
+chart: {
+width: 380,
+type: 'pie',
+},
+labels: ['Balance', 'Expense', 'Credit Loan',],
+responsive: [{
+breakpoint: 480,
+options: {
+chart: {
+width: 200
+},
+legend: {
+position: 'bottom'
+}
+}
+}]
+};
+
+var chart = new ApexCharts(document.querySelector("#pie-chart"), options);
+chart.render();
+</script>
+
+<script type="text/javascript">
+var options = {
+series: [{
+name: 'Income',
+data: [44, 55, 57, 56, 61, 58, 63, 60, 66]
+}, {
+name: 'Expense',
+data: [76, 85, 101, 98, 87, 105, 91, 114, 94]
+}, {
+name: 'Transfer',
+data: [35, 41, 36, 26, 45, 48, 52, 53, 41]
+}],
+chart: {
+type: 'bar',
+height: 350
+},
+plotOptions: {
+bar: {
+horizontal: false,
+columnWidth: '55%',
+endingShape: 'rounded'
+},
+},
+dataLabels: {
+enabled: false
+},
+stroke: {
+show: true,
+width: 2,
+colors: ['transparent']
+},
+xaxis: {
+categories: ['Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct'],
+},
+yaxis: {
+title: {
+text: '$ (thousands)'
+}
+},
+fill: {
+opacity: 1
+},
+tooltip: {
+y: {
+formatter: function (val) {
+return "$ " + val + " thousands"
+}
+}
+}
+};
+
+var chart = new ApexCharts(document.querySelector("#chart"), options);
+chart.render();
+</script>
+
+</body>
+</html>

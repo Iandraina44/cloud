@@ -1,0 +1,10 @@
+dotnet add package BCrypt.Net-Next
+dotnet add package MySql.Data  
+dotnet add package MailKit
+dotnet add package Swashbuckle.AspNetCore
+
+
+
+
+
+  

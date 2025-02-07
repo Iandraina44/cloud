@@ -1,0 +1,2 @@
++pour teste l API d envoye d' email:
+    http://localhost:5000/api/Email/send-email

@@ -1,0 +1,34 @@
+services:
+  apiweb:
+    build: ./dotnet/
+    ports:
+      - "5005:5005"
+    depends_on:
+      - db_apiweb
+    networks:
+      - reseau
+  
+  frontweb:
+    build: ./java/
+    ports:
+      - "8080:8080"
+    depends_on:
+      - db_apiweb
+    networks:
+      - reseau
+  
+
+  db_apiweb:
+    build: ./sql/
+    ports:
+      - "3306:3306"
+    restart: always
+    networks:
+      - reseau
+    volumes:
+      - db-data:/var/lib/mysql
+
+volumes:
+  db-data:
+networks:
+  reseau:

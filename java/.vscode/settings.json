@@ -1,0 +1,10 @@
+{
+    "java.project.sourcePaths": [
+        "java_work_dir\\src"
+    ],
+    "java.project.referencedLibraries": [
+        "java_work_dir\\lib\\servlet-api.jar",
+        "java_work_dir\\lib\\mysql-connector-j-8.1.0.jar",
+        "java_work_dir\\lib\\gson-2.8.2.jar"
+    ]
+}
