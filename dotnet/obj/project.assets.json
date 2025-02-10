@@ -2464,24 +2464,26 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\MIANTSA\\.nuget\\packages\\": {}
+    "C:\\Users\\Harentsoa\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\S5\\mr Rojo\\cloud\\dotnet\\dotnet.csproj",
+      "projectUniqueName": "C:\\Users\\Harentsoa\\Desktop\\ALL\\S5\\CLOUD\\cloud\\dotnet\\dotnet.csproj",
       "projectName": "dotnet",
-      "projectPath": "D:\\S5\\mr Rojo\\cloud\\dotnet\\dotnet.csproj",
-      "packagesPath": "C:\\Users\\MIANTSA\\.nuget\\packages\\",
-      "outputPath": "D:\\S5\\mr Rojo\\cloud\\dotnet\\obj\\",
+      "projectPath": "C:\\Users\\Harentsoa\\Desktop\\ALL\\S5\\CLOUD\\cloud\\dotnet\\dotnet.csproj",
+      "packagesPath": "C:\\Users\\Harentsoa\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Harentsoa\\Desktop\\ALL\\S5\\CLOUD\\cloud\\dotnet\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\MIANTSA\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\Harentsoa\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net8.0"
       ],
       "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -2494,6 +2496,11 @@
         "warnAsError": [
           "NU1605"
         ]
+      },
+      "restoreAuditProperties": {
+        "enableAudit": "true",
+        "auditLevel": "low",
+        "auditMode": "direct"
       }
     },
     "frameworks": {
@@ -2540,17 +2547,11 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.111/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.200/PortableRuntimeIdentifierGraph.json"
       }
     }
   },
   "logs": [
-    {
-      "code": "Undefined",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Problem reading the cache file D:\\S5\\mr Rojo\\cloud\\dotnet\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
-    },
     {
       "code": "NU1603",
       "level": "Warning",
