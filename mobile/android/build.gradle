@@ -1,0 +1,32 @@
+buildscript {
+    repositories {
+        google()  // Ajoute le repository de Google pour récupérer les dépendances Android
+        mavenCentral()  // Ajoute le repository Maven Central pour d'autres dépendances
+    }
+    dependencies {
+        classpath 'com.google.gms:google-services:4.4.2'  // Google services plugin
+        classpath 'com.android.tools.build:gradle:8.2.2'  // Version d'AGP compatible avec Java 8
+        classpath 'org.jetbrains.kotlin:kotlin-gradle-plugin:1.9.0'  // Plugin Kotlin (si vous utilisez Kotlin)
+    }
+}
+
+allprojects {
+    repositories {
+        google()  // Ajoute Google pour récupérer les dépendances liées à Android
+        mavenCentral()  // Ajoute Maven Central pour récupérer les dépendances générales
+        maven { url "https://jitpack.io" }  // JitPack pour des dépendances tierces si nécessaire
+    }
+}
+
+rootProject.buildDir = "../build"
+subprojects {
+    project.buildDir = "${rootProject.buildDir}/${project.name}"
+}
+
+subprojects {
+    project.evaluationDependsOn(":app")
+}
+
+tasks.register("clean", Delete) {
+    delete rootProject.buildDir
+}
